@@ -72,6 +72,6 @@ Remove an entire stack configured in `serverless.yml` via CloudFormation.
 
 # Links to site:
 
-link to S3-website - [arn:aws:s3:::awslessons-bucket-first](http://awslessons-bucket.s3-website-eu-west-1.amazonaws.com)
+link to S3-website - http://awslessons-bucket.s3-website-eu-west-1.amazonaws.com
 
-CloudFront URL - https://d1ek9hnz184qjk.cloudfront.net/
+CloudFront URL - https://d3guymdkijhydk.cloudfront.net/
