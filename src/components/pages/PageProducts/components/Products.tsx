@@ -32,6 +32,9 @@ export default function Products() {
               <Typography gutterBottom variant='h5' component='h2'>
                 {product.title}
               </Typography>
+              <Typography gutterBottom variant='h5' component='h2'>
+                {product.description}
+              </Typography>
               <Typography>{formatAsPrice(product.price)}</Typography>
             </CardContent>
             <CardActions>
