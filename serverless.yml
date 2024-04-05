@@ -1,4 +1,4 @@
-service: my-store-app
+service: fe-store-app
 
 frameworkVersion: "3"
 
@@ -20,7 +20,7 @@ plugins:
 
 custom:
   client:
-    bucketName: awslessons-bucket-second
+    bucketName: fe-product-shop-bucket
     distributionFolder: dist
   s3BucketName: ${self:custom.client.bucketName}
 
@@ -59,9 +59,11 @@ resources:
           Ref: WebAppS3Bucket
         PolicyDocument:
           Statement:
-            - Sid: "AllowCloudFrontAccessIdentity"
+            - Sid: "AllowCloudFrontAccessIdentityForGetAndPut"
               Effect: Allow
-              Action: s3:GetObject
+              Action:
+                - s3:GetObject
+                - s3:PutObject
               Resource: arn:aws:s3:::${self:custom.s3BucketName}/*
               Principal:
                 AWS:
@@ -106,7 +108,7 @@ resources:
               ResponseCode: 200
               ResponsePagePath: /index.html
           DefaultCacheBehavior:
-            AllowedMethods: ["GET", "HEAD", "OPTIONS"]
+            AllowedMethods: ["GET", "HEAD", "OPTIONS", "PUT", "POST"]
             CachedMethods: ["GET", "HEAD", "OPTIONS"]
             ForwardedValues:
               Headers:
